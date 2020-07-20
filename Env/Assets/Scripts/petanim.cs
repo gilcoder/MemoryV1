@@ -124,7 +124,7 @@ public class petanim : RLAgent
 
     private bool CheckAgentGoal()
     {
-        return acmreward >= 4;
+        return acmreward >= 5;
     }
 
     public int Energy {
@@ -421,20 +421,14 @@ public class petanim : RLAgent
         {
             fun.allowNext = true;
             firstTouch = false;
-        }
-    }
-
-    public override void AddReward(float v, RewardFunc from = null) {
-        if (from is TouchRewardFunc) {
-            if (v > 0) {
-                if (from.gameObject.tag == "red") {
-                    get_red_reward = true;
-                } else if (from.gameObject.tag == "green") {
-                    get_green_reward = true;
-                }
+            if (fun.gameObject.tag == "red") {
+                get_red_reward = true;
+            } else if (fun.gameObject.tag == "green") {
+                get_green_reward = true;
             }
+
+            AddReward(1);
         }
-        this.reward += v;
     }
 
     override public void UpdateState()
@@ -453,7 +447,7 @@ public class petanim : RLAgent
         GameObject[] reds = GameObject.FindGameObjectsWithTag("red");
         GameObject[] greens = GameObject.FindGameObjectsWithTag("green");
 
-        string[] names = {"target1", "target2", "target3", "target4", "target5", "target6", "target7", "target8", "target9", "target10"};
+        string[] names = {"target1", "target2", "target3", "target4", "target5", "target6", "target7", "target8", "target9", "target10", "wall1", "wall2", "wall3", "wall4"};
         float[] frame = new float[names.Length * 2 + 5];
         int j = 0;
         foreach(string name in names)
