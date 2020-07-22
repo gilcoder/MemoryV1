@@ -92,10 +92,10 @@ def train(pretrained_model=None):
 	# multiprocess environment
 	env, policy_kwargs = make_model_presets()
 	if pretrained_model is None:
-		model = ACKTR(MlpPolicy, env, policy_kwargs=policy_kwargs, verbose=1, tensorboard_log="./logs/")
+		model = PPO2(MlpPolicy, env, policy_kwargs=policy_kwargs, verbose=1, tensorboard_log="./logs/", learning_rate=0.001)
 		model.learn(total_timesteps=5000000)
 	else:
-		model = ACKTR.load(pretrained_model)
+		model = PPO2.load(pretrained_model)
 		model.set_env(env)
 		model.learn(total_timesteps=5000000, reset_num_timesteps=True)
 	model.save("ppo2_model")
@@ -103,7 +103,7 @@ def train(pretrained_model=None):
 
 def test():
 	env, policy_kwargs = make_model_presets()
-	model = ACKTR.load("ppo2_model", policy=MlpPolicy, policy_kwargs=policy_kwargs, tensorboard_log="./logs/")
+	model = PPO2.load("ppo2_model", policy=MlpPolicy, policy_kwargs=policy_kwargs, tensorboard_log="./logs/")
 	model.set_env(env)
 	# Enjoy trained agent
 	obs = env.reset()
