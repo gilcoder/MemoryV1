@@ -60,10 +60,10 @@ public class petcontroller : Controller
 
     override public void NewStateEvent()
     {
-        //float[] f = GetStateAsFloatArray(0);
+        float[] f = GetStateAsFloatArray(4);
         float r = GetStateAsFloat(5);
-        //Debug.Log("Frame " + string.Join(", ", f));
         if (r != 0) {
+            Debug.Log("reward_hist " + string.Join(", ", f));
             Debug.Log("Reward " + r);
         }
     }

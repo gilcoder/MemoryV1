@@ -6,20 +6,19 @@ using UnityEngine;
 namespace ai4u.ext
 {
 
-    public class MultTouchPrecondiction : MonoBehaviour
+    public class MultTouchPrecondition : RewardFunc
     {
-        public TouchRewardFunc[] precondictions;
-        private bool aNext;
+        public TouchRewardFunc[] preconditions;
         public bool atLeastOne = true;
 
         public bool allowNext
         {
             get
             {
-                if (this.precondictions != null && this.precondictions.Length > 0)
+                if (this.preconditions != null && this.preconditions.Length > 0)
                 {
                     bool r = true;
-                    foreach(TouchRewardFunc t in this.precondictions)
+                    foreach(TouchRewardFunc t in this.preconditions)
                     {
                         if (atLeastOne)
                         {
@@ -29,13 +28,8 @@ namespace ai4u.ext
                                 return true;
                             }
                         } else {
-                            if (t.allowNext)
-                            {
-                                if (!t.allowNext)
-                                {
-                                    return false;
-                                }
-                                r = r && t.allowNext;
+                            if (!t.allowNext) {
+                                return false;
                             }
                         }
                     }
@@ -49,10 +43,10 @@ namespace ai4u.ext
 
         public bool wasTouched(RLAgent agent)
         {
-            if (this.precondictions != null && this.precondictions.Length > 0)
+            if (this.preconditions != null && this.preconditions.Length > 0)
             {
                 bool r = true;
-                foreach (TouchRewardFunc t in precondictions)
+                foreach (TouchRewardFunc t in preconditions)
                 {
                     if (atLeastOne)
                     {
@@ -64,7 +58,7 @@ namespace ai4u.ext
                     }
                     else
                     {
-                        if (!t.wasTouched(agent))
+                        if (!t.wasTouched(agent)) 
                         {
                             return false;
                         }

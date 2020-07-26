@@ -143,7 +143,7 @@ MonoBehaviour:
   painForViolatinPrecondition: 0
   rewardValue: 0
   precondition: {fileID: 0}
-  precondictionMin: 1
+  multiplePrecondictions: {fileID: 0}
   triggerOnStay: 0
   allowNext: 0
 --- !u!1 &361938359010868354
@@ -319,7 +319,7 @@ MonoBehaviour:
   painForViolatinPrecondition: 0
   rewardValue: 0
   precondition: {fileID: 0}
-  precondictionMin: 1
+  multiplePrecondictions: {fileID: 0}
   triggerOnStay: 0
   allowNext: 0
 --- !u!1 &361938359417560799
@@ -745,7 +745,7 @@ MonoBehaviour:
   painForViolatinPrecondition: 0
   rewardValue: 0
   precondition: {fileID: 0}
-  precondictionMin: 1
+  multiplePrecondictions: {fileID: 0}
   triggerOnStay: 0
   allowNext: 0
 --- !u!1 &361938360151634114
@@ -871,13 +871,7 @@ MonoBehaviour:
   action2: {fileID: 0}
   action3: {fileID: 0}
   action4: {fileID: 6564851387318341100}
-  gate1Pos1: {fileID: 361938359858385658}
-  gate1Pos2: {fileID: 361938360515648367}
-  gate2Pos1: {fileID: 0}
-  gate2Pos2: {fileID: 0}
   agent: {fileID: 4633000926608865515}
-  gate1: {fileID: 0}
-  gate2: {fileID: 0}
   respawn1: {fileID: 361938358765681158}
   respawn2: {fileID: 361938359874441479}
   respawn3: {fileID: 361938360457665778}
@@ -1173,7 +1167,7 @@ MonoBehaviour:
   painForViolatinPrecondition: 0
   rewardValue: 0
   precondition: {fileID: 0}
-  precondictionMin: 1
+  multiplePrecondictions: {fileID: 0}
   triggerOnStay: 0
   allowNext: 0
 --- !u!114 &2707813825893749839
@@ -1194,8 +1188,8 @@ MonoBehaviour:
   painForViolatinPrecondition: 1
   rewardValue: 1
   precondition: {fileID: 2707813825893749839}
-  precondictionMin: 1
-  triggerOnStay: 1
+  multiplePrecondictions: {fileID: 0}
+  triggerOnStay: 0
   allowNext: 0
 --- !u!114 &7508195178805089902
 MonoBehaviour:
@@ -1215,27 +1209,6 @@ MonoBehaviour:
   - {fileID: 8834401926262615643}
   - {fileID: 2583526010802300963}
   atLeastOne: 1
---- !u!114 &8999924566049643666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7543532073820260016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 829f45f4722134e45953e19df0ba4694, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agents: []
-  maxTouch: -1
-  painForOverTouch: 0
-  painForViolatinPrecondition: 0
-  rewardValue: 1
-  precondition: {fileID: 0}
-  precondictionMin: 1
-  triggerOnStay: 1
-  allowNext: 0
 --- !u!114 &2583526010802300963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1254,8 +1227,8 @@ MonoBehaviour:
   painForViolatinPrecondition: 1
   rewardValue: 1
   precondition: {fileID: 2583526010802300963}
-  precondictionMin: 1
-  triggerOnStay: 1
+  multiplePrecondictions: {fileID: 0}
+  triggerOnStay: 0
   allowNext: 0
 --- !u!114 &2712663331179350287
 MonoBehaviour:
@@ -1311,8 +1284,8 @@ MonoBehaviour:
   painForViolatinPrecondition: 1
   rewardValue: 1
   precondition: {fileID: 2963461252331741758}
-  precondictionMin: 1
-  triggerOnStay: 1
+  multiplePrecondictions: {fileID: 0}
+  triggerOnStay: 0
   allowNext: 0
 --- !u!114 &471703925757245547
 MonoBehaviour:
@@ -1333,7 +1306,7 @@ MonoBehaviour:
   painForViolatinPrecondition: 1
   rewardValue: 1
   precondition: {fileID: 471703925757245547}
-  precondictionMin: 1
+  multiplePrecondictions: {fileID: 0}
   triggerOnStay: 0
   allowNext: 0
 --- !u!114 &7646280601346433757
@@ -1354,6 +1327,27 @@ MonoBehaviour:
   - {fileID: 8834401926262615643}
   - {fileID: 2583526010802300963}
   atLeastOne: 1
+--- !u!114 &8999924566049643666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7543532073820260016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829f45f4722134e45953e19df0ba4694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agents: []
+  maxTouch: -1
+  painForOverTouch: 0
+  painForViolatinPrecondition: 0
+  rewardValue: 1
+  precondition: {fileID: 0}
+  multiplePrecondictions: {fileID: 0}
+  triggerOnStay: 0
+  allowNext: 0
 --- !u!114 &5214589838124168751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1390,8 +1384,8 @@ MonoBehaviour:
   painForViolatinPrecondition: 1
   rewardValue: 1
   precondition: {fileID: 8834401926262615643}
-  precondictionMin: 1
-  triggerOnStay: 1
+  multiplePrecondictions: {fileID: 0}
+  triggerOnStay: 0
   allowNext: 0
 --- !u!1001 &361938360120454305
 PrefabInstance:
@@ -1549,12 +1543,6 @@ PrefabInstance:
     - {fileID: 8767827379919767502, guid: 5cb0cc58fc80680cdbae104159746d42, type: 3}
     - {fileID: 901180517973506760, guid: 5cb0cc58fc80680cdbae104159746d42, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5cb0cc58fc80680cdbae104159746d42, type: 3}
---- !u!1 &4633000926608865515 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4994039875192919114, guid: 5cb0cc58fc80680cdbae104159746d42,
-    type: 3}
-  m_PrefabInstance: {fileID: 361938360120454305}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8507546068932971256 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8292601455661311577, guid: 5cb0cc58fc80680cdbae104159746d42,
@@ -1573,6 +1561,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cb2848c9c94b7ae08a0f4f5d2c7b93c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4633000926608865515 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4994039875192919114, guid: 5cb0cc58fc80680cdbae104159746d42,
+    type: 3}
+  m_PrefabInstance: {fileID: 361938360120454305}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3704866955593245184 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3922505364316540577, guid: 5cb0cc58fc80680cdbae104159746d42,
@@ -1673,15 +1667,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b188412c1b4e8bdc9b36f66007d135c, type: 3}
---- !u!4 &6564851387318341096 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6782091784344012706, guid: 7b188412c1b4e8bdc9b36f66007d135c,
-    type: 3}
-  m_PrefabInstance: {fileID: 361938360626612810}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6564851387318341100 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6782091784344012710, guid: 7b188412c1b4e8bdc9b36f66007d135c,
+    type: 3}
+  m_PrefabInstance: {fileID: 361938360626612810}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6564851387318341096 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6782091784344012706, guid: 7b188412c1b4e8bdc9b36f66007d135c,
     type: 3}
   m_PrefabInstance: {fileID: 361938360626612810}
   m_PrefabAsset: {fileID: 0}
@@ -1917,15 +1911,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b188412c1b4e8bdc9b36f66007d135c, type: 3}
---- !u!1 &8079627440608888686 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6782091784344012710, guid: 7b188412c1b4e8bdc9b36f66007d135c,
-    type: 3}
-  m_PrefabInstance: {fileID: 3332187438370406600}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8079627440608888682 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6782091784344012706, guid: 7b188412c1b4e8bdc9b36f66007d135c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3332187438370406600}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8079627440608888686 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6782091784344012710, guid: 7b188412c1b4e8bdc9b36f66007d135c,
     type: 3}
   m_PrefabInstance: {fileID: 3332187438370406600}
   m_PrefabAsset: {fileID: 0}

@@ -39,7 +39,7 @@ public class petanim : RLAgent
     private bool done = false;
     public GameObject brainMesh;
     private float acmreward = 0;
-    private bool get_red_reward, get_green_reward;
+    private float[] reward_hist;
     //END::Internal
 
     //BEGIN::Move Variables
@@ -100,8 +100,7 @@ public class petanim : RLAgent
         energy_delta_time = 0;
         acmreward = 0;
         firstTouch = true;
-        get_green_reward = false;
-        get_green_reward = false;
+        reward_hist = new float[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         //rewardByHitButtonUsed = false;
     }
 
@@ -120,11 +119,6 @@ public class petanim : RLAgent
         set {
             this.signal = value;
         }
-    }
-
-    private bool CheckAgentGoal()
-    {
-        return acmreward >= 5;
     }
 
     public int Energy {
@@ -239,7 +233,7 @@ public class petanim : RLAgent
         return Encoding.UTF8.GetBytes(sb.ToString().ToCharArray());
     }
 
-    private void UpdateRaysMatrix(Vector3 position, Vector3 forward, Vector3 up, Vector3 right, float fieldOfView = 45.0f)
+    private void UpdateRaysMatrix(Vector3 position, Vector3 forward, Vector3 up, Vector3 right, float fieldOfView = 90.0f)
     {
 
 
@@ -305,6 +299,12 @@ public class petanim : RLAgent
     private Color petOriginalColor = new Color(1.0f, 0.0f, 0.7451f, 1.0f);
     override public void UpdatePhysics()
     {
+
+        if (done)
+        {
+            return;
+        }
+
         if (onGround){
             mRigidBody.velocity = Vector3.zero;
         }
@@ -417,28 +417,49 @@ public class petanim : RLAgent
 
     public override void touchListener(TouchRewardFunc fun)
     {
-        if (firstTouch)
-        {
-            fun.allowNext = true;
-            firstTouch = false;
-            if (fun.gameObject.tag == "red") {
-                get_red_reward = true;
-            } else if (fun.gameObject.tag == "green") {
-                get_green_reward = true;
-            }
 
-            AddReward(1);
+        if (done) 
+        {
+            return;
+        }
+
+        if (fun.gameObject.name.StartsWith("target"))
+        {
+
+
+            if (firstTouch)
+            {
+                fun.allowNext = true;
+                firstTouch = false;
+                AddReward(11);
+            }
+            
+            fun.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.yellow);
+            int idx = int.Parse(fun.gameObject.name.Substring(6));
+            reward_hist[idx-1] = 1;
+            if ((reward_hist[0] == 1 && reward_hist[1] == 1 && reward_hist[2] == 1 && reward_hist[3] == 1 && reward_hist[4] == 1) ||
+                (reward_hist[5] == 1 && reward_hist[6] == 1 && reward_hist[7] == 1 && reward_hist[8] == 1 && reward_hist[9] == 1))
+            {
+                gameStatus = "You Won!!!";
+                done = true;
+            }
+        }
+    }
+
+    public override void preconditionFailListener(RewardFunc func, RewardFunc precondiction) {
+        if (done) return;
+        if (func is TouchRewardFunc) {
+            if (!firstTouch && !((TouchRewardFunc)func).allowNext)
+            {
+                done = true;
+            }
         }
     }
 
     override public void UpdateState()
     {        
-        if (!done && CheckAgentGoal())
-        {
-            gameStatus = "You Won!!!";
-            done = true;
-            AddReward(1);
-        } else if (!done && energy <= 0)
+    
+        if (!done && energy <= 0)
         {
             gameStatus = "Game Over!!!";
             done = true;
@@ -447,27 +468,36 @@ public class petanim : RLAgent
         GameObject[] reds = GameObject.FindGameObjectsWithTag("red");
         GameObject[] greens = GameObject.FindGameObjectsWithTag("green");
 
-        string[] names = {"target1", "target2", "target3", "target4", "target5", "target6", "target7", "target8", "target9", "target10", "wall1", "wall2", "wall3", "wall4"};
-        float[] frame = new float[names.Length * 2 + 5];
+        string[] names = {"target1", "target2", "target3", "target4", "target5", "target6", "target7", "target8", "target9", "target10"};
+        //float[] frame = new float[names.Length * 2 + 5];
         int j = 0;
         foreach(string name in names)
         {
             GameObject obj = GameObject.Find(name);
-            frame[j] = obj.transform.position.x;
-            frame[j+1] = obj.transform.position.z;
+            /*frame[j] = obj.transform.position.x;
+            frame[j+1] = obj.transform.position.z;*/
             j += 2;
+            if (done) {
+                obj.GetComponent<TouchRewardFunc>().allowNext = false;
+                if (obj.tag == "red") {
+                    obj.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+                } else if (obj.tag == "green") {
+                    obj.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+                }
+            }
         }
+        /*
         frame[j] = transform.position.x;
         frame[j+1] = transform.position.z;
         frame[j+2] = transform.rotation.eulerAngles.y;
         frame[j+3] = get_green_reward ? 1: 0;
-        frame[j+4] = get_red_reward ? 1: 0;
-
-        SetStateAsFloatArray(0, "frame", frame);
+        frame[j+4] = get_red_reward ? 1: 0;*/
+    
+        SetStateAsByteArray(0, "frame", updateCurrentRayCastingFrame());
         SetStateAsBool(1, "done", done);
         SetStateAsInt(2, "energy", energy);
         SetStateAsInt(3, "touched", touched_id);
-        SetStateAsFloat(4, "signal", signal);
+        SetStateAsFloatArray(4, "reward_hist", reward_hist);
         SetStateAsFloat(5, "reward", Reward);
         acmreward += Reward;
         ResetReward();

@@ -332,8 +332,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6588afed7a476f428c69b8a41b2495c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  precondictions:
-  - {fileID: 1751424434}
+  agents: []
+  preconditions:
+  - {fileID: 1751424439}
   - {fileID: 935215927}
   - {fileID: 828493231}
   - {fileID: 968245595}
@@ -354,10 +355,10 @@ MonoBehaviour:
   - {fileID: 1751424440}
   maxTouch: 1
   painForOverTouch: 0
-  painForViolatinPrecondition: 0.1
-  rewardValue: 1
+  painForViolatinPrecondition: 1
+  rewardValue: 10
   precondition: {fileID: 0}
-  multiplePrecondictions: {fileID: 382879472}
+  multiplePreconditions: {fileID: 382879472}
   triggerOnStay: 0
   allowNext: 0
 --- !u!1 &414037951
@@ -456,7 +457,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6588afed7a476f428c69b8a41b2495c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  precondictions:
+  agents: []
+  preconditions:
   - {fileID: 382879473}
   - {fileID: 935215927}
   - {fileID: 828493231}
@@ -480,8 +482,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6588afed7a476f428c69b8a41b2495c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  precondictions:
-  - {fileID: 1751424434}
+  agents: []
+  preconditions:
+  - {fileID: 1751424439}
   - {fileID: 382879473}
   - {fileID: 935215927}
   - {fileID: 968245595}
@@ -502,10 +505,10 @@ MonoBehaviour:
   - {fileID: 1751424440}
   maxTouch: 1
   painForOverTouch: 0
-  painForViolatinPrecondition: 0.1
-  rewardValue: 1
+  painForViolatinPrecondition: 1
+  rewardValue: 10
   precondition: {fileID: 0}
-  multiplePrecondictions: {fileID: 828493230}
+  multiplePreconditions: {fileID: 828493230}
   triggerOnStay: 0
   allowNext: 0
 --- !u!1 &935215925 stripped
@@ -526,8 +529,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6588afed7a476f428c69b8a41b2495c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  precondictions:
-  - {fileID: 1751424434}
+  agents: []
+  preconditions:
+  - {fileID: 1751424439}
   - {fileID: 382879473}
   - {fileID: 828493231}
   - {fileID: 968245595}
@@ -548,10 +552,10 @@ MonoBehaviour:
   - {fileID: 1751424440}
   maxTouch: 1
   painForOverTouch: 0
-  painForViolatinPrecondition: 0.1
-  rewardValue: 1
+  painForViolatinPrecondition: 1
+  rewardValue: 10
   precondition: {fileID: 0}
-  multiplePrecondictions: {fileID: 935215926}
+  multiplePreconditions: {fileID: 935215926}
   triggerOnStay: 0
   allowNext: 0
 --- !u!1 &968245593 stripped
@@ -576,11 +580,11 @@ MonoBehaviour:
   - {fileID: 1751424440}
   maxTouch: 1
   painForOverTouch: 0
-  painForViolatinPrecondition: 0.1
-  rewardValue: 1
+  painForViolatinPrecondition: 1
+  rewardValue: 10
   precondition: {fileID: 0}
-  multiplePrecondictions: {fileID: 968245599}
-  triggerOnStay: 1
+  multiplePreconditions: {fileID: 968245599}
+  triggerOnStay: 0
   allowNext: 0
 --- !u!114 &968245599
 MonoBehaviour:
@@ -594,8 +598,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6588afed7a476f428c69b8a41b2495c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  precondictions:
-  - {fileID: 1751424434}
+  agents: []
+  preconditions:
+  - {fileID: 1751424439}
   - {fileID: 382879473}
   - {fileID: 935215927}
   - {fileID: 828493231}
@@ -856,7 +861,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_MaterialTemplate
       value: 
-      objectReference: {fileID: 2100000, guid: 6bbeba269e4ba16469011fa74d4e1e29, type: 2}
+      objectReference: {fileID: 2100000, guid: b6cdf3c59f695ff43ac5a15df3e16fac, type: 2}
     - target: {fileID: 361938360414214722, guid: 73cc3f0c1dac57044b355e2250c718ea,
         type: 3}
       propertyPath: m_Name
@@ -930,12 +935,47 @@ PrefabInstance:
     - target: {fileID: 471703925757245547, guid: 73cc3f0c1dac57044b355e2250c718ea,
         type: 3}
       propertyPath: painForViolatinPrecondition
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 471703925757245547, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: multiplePreconditions
+      value: 
+      objectReference: {fileID: 1112224319}
+    - target: {fileID: 471703925757245547, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: rewardValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 982358614143966249, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 982358614143966249, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.data[0]
+      value: 
+      objectReference: {fileID: 1751424438}
+    - target: {fileID: 982358614143966249, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.data[1]
+      value: 
+      objectReference: {fileID: 1751424436}
+    - target: {fileID: 982358614143966249, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.data[2]
+      value: 
+      objectReference: {fileID: 1751424435}
+    - target: {fileID: 982358614143966249, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.data[3]
+      value: 
+      objectReference: {fileID: 1751424434}
     - target: {fileID: 2335096647867594094, guid: 73cc3f0c1dac57044b355e2250c718ea,
         type: 3}
       propertyPath: painForOverTouch
-      value: 0.001
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2583526010802300963, guid: 73cc3f0c1dac57044b355e2250c718ea,
         type: 3}
@@ -965,7 +1005,17 @@ PrefabInstance:
     - target: {fileID: 2583526010802300963, guid: 73cc3f0c1dac57044b355e2250c718ea,
         type: 3}
       propertyPath: painForViolatinPrecondition
-      value: 0.1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583526010802300963, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: multiplePreconditions
+      value: 
+      objectReference: {fileID: 112561554}
+    - target: {fileID: 2583526010802300963, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: rewardValue
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2707813825893749839, guid: 73cc3f0c1dac57044b355e2250c718ea,
         type: 3}
@@ -995,8 +1045,43 @@ PrefabInstance:
     - target: {fileID: 2707813825893749839, guid: 73cc3f0c1dac57044b355e2250c718ea,
         type: 3}
       propertyPath: painForViolatinPrecondition
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2707813825893749839, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: multiplePreconditions
+      value: 
+      objectReference: {fileID: 1538283973}
+    - target: {fileID: 2707813825893749839, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: rewardValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712663331179350287, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2712663331179350287, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.data[0]
+      value: 
+      objectReference: {fileID: 1751424438}
+    - target: {fileID: 2712663331179350287, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.data[1]
+      value: 
+      objectReference: {fileID: 1751424437}
+    - target: {fileID: 2712663331179350287, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.data[2]
+      value: 
+      objectReference: {fileID: 1751424436}
+    - target: {fileID: 2712663331179350287, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.data[3]
+      value: 
+      objectReference: {fileID: 1751424435}
     - target: {fileID: 2878513211862853167, guid: 73cc3f0c1dac57044b355e2250c718ea,
         type: 3}
       propertyPath: painForOverTouch
@@ -1030,7 +1115,17 @@ PrefabInstance:
     - target: {fileID: 2963461252331741758, guid: 73cc3f0c1dac57044b355e2250c718ea,
         type: 3}
       propertyPath: painForViolatinPrecondition
-      value: 0.1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2963461252331741758, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: multiplePreconditions
+      value: 
+      objectReference: {fileID: 1993960287}
+    - target: {fileID: 2963461252331741758, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: rewardValue
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3704866954391904749, guid: 73cc3f0c1dac57044b355e2250c718ea,
         type: 3}
@@ -1062,16 +1157,96 @@ PrefabInstance:
       propertyPath: fixedUpdate
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3704866955593245185, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: port
+      value: 7070
+      objectReference: {fileID: 0}
     - target: {fileID: 3875001023547514244, guid: 73cc3f0c1dac57044b355e2250c718ea,
         type: 3}
       propertyPath: painForOverTouch
-      value: 0.001
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4525437852436153815, guid: 73cc3f0c1dac57044b355e2250c718ea,
         type: 3}
       propertyPath: painForOverTouch
-      value: 0.001
+      value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 5214589838124168751, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214589838124168751, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.data[0]
+      value: 
+      objectReference: {fileID: 1751424438}
+    - target: {fileID: 5214589838124168751, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.data[1]
+      value: 
+      objectReference: {fileID: 1751424437}
+    - target: {fileID: 5214589838124168751, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.data[2]
+      value: 
+      objectReference: {fileID: 1751424436}
+    - target: {fileID: 5214589838124168751, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.data[3]
+      value: 
+      objectReference: {fileID: 1751424434}
+    - target: {fileID: 7508195178805089902, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7508195178805089902, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.data[0]
+      value: 
+      objectReference: {fileID: 1751424438}
+    - target: {fileID: 7508195178805089902, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.data[1]
+      value: 
+      objectReference: {fileID: 1751424437}
+    - target: {fileID: 7508195178805089902, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.data[2]
+      value: 
+      objectReference: {fileID: 1751424435}
+    - target: {fileID: 7508195178805089902, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.data[3]
+      value: 
+      objectReference: {fileID: 1751424434}
+    - target: {fileID: 7646280601346433757, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7646280601346433757, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.data[0]
+      value: 
+      objectReference: {fileID: 1751424437}
+    - target: {fileID: 7646280601346433757, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.data[1]
+      value: 
+      objectReference: {fileID: 1751424436}
+    - target: {fileID: 7646280601346433757, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.data[2]
+      value: 
+      objectReference: {fileID: 1751424435}
+    - target: {fileID: 7646280601346433757, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: preconditions.Array.data[3]
+      value: 
+      objectReference: {fileID: 1751424434}
     - target: {fileID: 8210480740309075005, guid: 73cc3f0c1dac57044b355e2250c718ea,
         type: 3}
       propertyPath: painForOverTouch
@@ -1080,7 +1255,7 @@ PrefabInstance:
     - target: {fileID: 8592965183130719044, guid: 73cc3f0c1dac57044b355e2250c718ea,
         type: 3}
       propertyPath: painForOverTouch
-      value: 0.001
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8834401926262615643, guid: 73cc3f0c1dac57044b355e2250c718ea,
         type: 3}
@@ -1110,7 +1285,17 @@ PrefabInstance:
     - target: {fileID: 8834401926262615643, guid: 73cc3f0c1dac57044b355e2250c718ea,
         type: 3}
       propertyPath: painForViolatinPrecondition
-      value: 0.1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8834401926262615643, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: multiplePreconditions
+      value: 
+      objectReference: {fileID: 1367831509}
+    - target: {fileID: 8834401926262615643, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: rewardValue
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8999924566049643666, guid: 73cc3f0c1dac57044b355e2250c718ea,
         type: 3}
@@ -1130,7 +1315,7 @@ PrefabInstance:
     - target: {fileID: 8999924566049643666, guid: 73cc3f0c1dac57044b355e2250c718ea,
         type: 3}
       propertyPath: painForViolatinPrecondition
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8999924566049643666, guid: 73cc3f0c1dac57044b355e2250c718ea,
         type: 3}
@@ -1147,6 +1332,16 @@ PrefabInstance:
       propertyPath: multiplePrecondictions
       value: 
       objectReference: {fileID: 616912875}
+    - target: {fileID: 8999924566049643666, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: multiplePreconditions
+      value: 
+      objectReference: {fileID: 616912875}
+    - target: {fileID: 8999924566049643666, guid: 73cc3f0c1dac57044b355e2250c718ea,
+        type: 3}
+      propertyPath: rewardValue
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73cc3f0c1dac57044b355e2250c718ea, type: 3}
 --- !u!1 &1751424433 stripped
@@ -1156,6 +1351,66 @@ GameObject:
   m_PrefabInstance: {fileID: 1751424432}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1751424434 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2583526010802300963, guid: 73cc3f0c1dac57044b355e2250c718ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1751424432}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829f45f4722134e45953e19df0ba4694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1751424435 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8834401926262615643, guid: 73cc3f0c1dac57044b355e2250c718ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1751424432}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829f45f4722134e45953e19df0ba4694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1751424436 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2707813825893749839, guid: 73cc3f0c1dac57044b355e2250c718ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1751424432}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829f45f4722134e45953e19df0ba4694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1751424437 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2963461252331741758, guid: 73cc3f0c1dac57044b355e2250c718ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1751424432}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829f45f4722134e45953e19df0ba4694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1751424438 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 471703925757245547, guid: 73cc3f0c1dac57044b355e2250c718ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1751424432}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829f45f4722134e45953e19df0ba4694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1751424439 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8999924566049643666, guid: 73cc3f0c1dac57044b355e2250c718ea,
     type: 3}

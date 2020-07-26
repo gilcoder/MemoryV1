@@ -95,7 +95,7 @@ def train(pretrained_model=None):
 	# multiprocess environment
 	env, policy_kwargs = make_model_presets()
 	if pretrained_model is None:
-		model = PPO2(MlpPolicy, env, policy_kwargs=policy_kwargs, verbose=1, tensorboard_log="./logs/", learning_rate=0.001)
+		model = PPO2(MlpPolicy, env, policy_kwargs=policy_kwargs, verbose=1, tensorboard_log="./logs/")
 		model.learn(total_timesteps=5000000)
 	else:
 		model = PPO2.load(pretrained_model)

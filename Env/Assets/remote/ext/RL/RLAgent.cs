@@ -37,6 +37,10 @@ namespace ai4u.ext {
             //TODO add behavior here
         }
 
+        public virtual void preconditionFailListener(RewardFunc func, RewardFunc precondiction) {
+
+        }
+
         public virtual void SubReward(float v, RewardFunc from = null) {
             reward -= v;
         }
