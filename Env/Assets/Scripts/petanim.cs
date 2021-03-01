@@ -36,7 +36,6 @@ public class petanim : RLAgent
     private int energy;
     private int energy_delta_time = 0;
     public int energyUpdateInterval = 100;
-    private bool done = false;
     public GameObject brainMesh;
     private float acmreward = 0;
     private float[] reward_hist;
@@ -62,7 +61,7 @@ public class petanim : RLAgent
 
     //BEGIN::Touch Sense
     private int touched_id = -1;
-    private bool firstTouch = true;
+    private bool isFirstTouch = true;
     //END::Touch Sense
 
     //BEGIN::::EMOTIONAL VARIABLES
@@ -89,17 +88,16 @@ public class petanim : RLAgent
 
     public void ResetParams() {
         gameStatus = "Go!";
-        ResetReward();
         NotifyReset();
         touched_id = 0;
         energy = initialEnergy;
         onGround = false;
         touched_id = -1;
         signal = 0;
-        done = false;
+        Done = false;
         energy_delta_time = 0;
         acmreward = 0;
-        firstTouch = true;
+        isFirstTouch = true;
         reward_hist = new float[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         //rewardByHitButtonUsed = false;
     }
@@ -127,17 +125,13 @@ public class petanim : RLAgent
         }
     }
 
-    private bool IsDone() {
-        return done;
-    }
-
     private float v=0, h=0, jump=0, push=0, signal=0;
     override public void ApplyAction()
     {
         v = 0; h = 0; jump = 0; push = 0; //signal = 0;
         string actionName = GetActionName();
         if (actionName == "act"){
-            if (done)
+            if (Done)
             {
                 return;
             }
@@ -203,7 +197,7 @@ public class petanim : RLAgent
             mRigidBody.angularVelocity = Vector3.zero;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             // gameManager.GetComponent<Manager>().ResetGame();
-            //ResetParams();
+            ResetParams();
         }
     }
 
@@ -300,7 +294,7 @@ public class petanim : RLAgent
     override public void UpdatePhysics()
     {
 
-        if (done)
+        if (Done)
         {
             return;
         }
@@ -342,7 +336,6 @@ public class petanim : RLAgent
 
 
         //BEGEIN::UPDATE BIO
-    
         if (energy_delta_time >= energyUpdateInterval) {
             energy -= 1;
             energy_delta_time = 0;
@@ -353,7 +346,6 @@ public class petanim : RLAgent
         v = 0; h = 0; jump = 0; push = 0; //signal = 0;
     }
 
-    
     /// <summary>
     /// OnCollisionEnter is called when this collider/rigidbody has begun
     /// touching another rigidbody/collider.
@@ -377,7 +369,7 @@ public class petanim : RLAgent
             }
         }
 
-        if (done)
+        if (Done)
         {
             return;
         }
@@ -418,7 +410,7 @@ public class petanim : RLAgent
     public override void touchListener(TouchRewardFunc fun)
     {
 
-        if (done) 
+        if (Done) 
         {
             return;
         }
@@ -427,10 +419,10 @@ public class petanim : RLAgent
         {
 
 
-            if (firstTouch)
+            if (isFirstTouch)
             {
                 fun.allowNext = true;
-                firstTouch = false;
+                isFirstTouch = false;
                 AddReward(11);
             }
             
@@ -441,28 +433,28 @@ public class petanim : RLAgent
                 (reward_hist[5] == 1 && reward_hist[6] == 1 && reward_hist[7] == 1 && reward_hist[8] == 1 && reward_hist[9] == 1))
             {
                 gameStatus = "You Won!!!";
-                done = true;
+                Done = true;
             }
         }
     }
 
-    public override void preconditionFailListener(RewardFunc func, RewardFunc precondiction) {
-        if (done) return;
+    public override void PreconditionFailListener(RewardFunc func, RewardFunc precondiction) {
+        if (Done) return;
         if (func is TouchRewardFunc) {
-            if (!firstTouch && !((TouchRewardFunc)func).allowNext)
+            if (!isFirstTouch && !((TouchRewardFunc)func).allowNext)
             {
-                done = true;
+                gameStatus = "Game Over!!!";
+                Done = true;
             }
         }
     }
 
     override public void UpdateState()
-    {        
-    
-        if (!done && energy <= 0)
+    {
+        if (!Done && energy <= 0)
         {
             gameStatus = "Game Over!!!";
-            done = true;
+            Done = true;
         }
 
         GameObject[] reds = GameObject.FindGameObjectsWithTag("red");
@@ -477,7 +469,7 @@ public class petanim : RLAgent
             /*frame[j] = obj.transform.position.x;
             frame[j+1] = obj.transform.position.z;*/
             j += 2;
-            if (done) {
+            if (Done) {
                 obj.GetComponent<TouchRewardFunc>().allowNext = false;
                 if (obj.tag == "red") {
                     obj.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
@@ -494,13 +486,13 @@ public class petanim : RLAgent
         frame[j+4] = get_red_reward ? 1: 0;*/
     
         SetStateAsByteArray(0, "frame", updateCurrentRayCastingFrame());
-        SetStateAsBool(1, "done", done);
+        SetStateAsBool(1, "done", Done);
         SetStateAsInt(2, "energy", energy);
         SetStateAsInt(3, "touched", touched_id);
         SetStateAsFloatArray(4, "reward_hist", reward_hist);
         SetStateAsFloat(5, "reward", Reward);
         acmreward += Reward;
-        ResetReward();
+        reward = 0;
         //END::UPDATE AGENT VISION
     }
 }

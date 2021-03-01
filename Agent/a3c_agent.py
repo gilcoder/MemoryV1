@@ -7,7 +7,6 @@ import AI4UGym
 from AI4UGym import BasicAgent
 import numpy as np
 from ai4u.utils import image_decode
-from stable_baselines.common.callbacks import CheckpointCallback
 from math import log, e
 from collections import deque
 import time
@@ -17,14 +16,14 @@ FEATURE_SHAPE = (20, 20, H_SIZE)
 ACTION_SHAPE = (4, )
 ARRAY_SIZE = 10
 
-def make_inference_network(obs_shape, n_actions, debug=False, extra_inputs_shape=None):
+def make_inference_network(obs_shape, n_actions, debug=False, extra_inputs_shape=None, network=None):
 	import tensorflow as tf
 	from ai4u.ml.a3c.multi_scope_train_op import make_train_op 
 	from ai4u.ml.a3c.utils_tensorflow import make_grad_histograms, make_histograms, make_rmsprop_histograms, \
 		logit_entropy, make_copy_ops
 
-	observations = tf.placeholder(tf.float32, [None] + list(obs_shape))
-	proprioceptions = tf.placeholder(tf.float32, (None, ARRAY_SIZE) )
+	observations = tf.keras.Input(list(obs_shape), dtype=tf.float32)
+	proprioceptions = tf.keras.Input(shape=(ARRAY_SIZE), dtype=tf.float32)
 
 	normalized_obs = tf.keras.layers.Lambda(lambda x : x/255.0)(observations)
 
@@ -46,7 +45,7 @@ def make_inference_network(obs_shape, n_actions, debug=False, extra_inputs_shape
 	action_logits = tf.keras.layers.Dense(n_actions, activation=None, name='action_logits')(hidden2)
 	action_probs = tf.nn.softmax(action_logits)
 
-	values = tf.layers.Dense(1, activation=None, name='value')(hidden2)
+	values = tf.keras.layers.Dense(1, activation=None, name='value')(hidden2)
 
 	# Shape is currently (?, 1)
 	# Convert to just (?)

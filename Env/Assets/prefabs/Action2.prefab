@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5550583945249866260}
   - component: {fileID: 5550583945249866259}
   - component: {fileID: 5550583945249866258}
+  - component: {fileID: 7843569761964725903}
   m_Layer: 0
   m_Name: Action2
   m_TagString: green
@@ -94,3 +95,25 @@ CapsuleCollider:
   m_Height: 24
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &7843569761964725903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5550583945249866257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44f27d67f7844743798c5d1bcda4139a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agents: []
+  causeEpisodeToEnd: 0
+  maxTouch: 1
+  painForOverTouch: 0
+  painForViolatinPrecondition: 1
+  rewardValue: 10
+  precondition: {fileID: 0}
+  multiplePreconditions: {fileID: 0}
+  triggerOnStay: 0
+  allowNext: 0

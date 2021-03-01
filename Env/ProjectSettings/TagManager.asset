@@ -12,6 +12,7 @@ TagManager:
   - gate
   - red
   - green
+  - target
   layers:
   - Default
   - TransparentFX

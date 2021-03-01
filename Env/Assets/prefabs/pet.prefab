@@ -401,8 +401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3922505364316540579}
-  - component: {fileID: 3922505364316540576}
-  - component: {fileID: 901180517973506760}
+  - component: {fileID: 1963393220626166179}
   m_Layer: 0
   m_Name: RemoteBrain
   m_TagString: Untagged
@@ -424,7 +423,7 @@ Transform:
   m_Father: {fileID: 8292601455661311577}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3922505364316540576
+--- !u!114 &1963393220626166179
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -433,7 +432,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3922505364316540577}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: addc703febb53b6ea9cedd60490c6ac2, type: 3}
+  m_Script: {fileID: 11500000, guid: 95d63f16ca1abdfa29ce56d663a874ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 3922505365514472780}
@@ -444,22 +443,8 @@ MonoBehaviour:
   remoteIP: 127.0.0.1
   remotePort: 8080
   alwaysUpdate: 0
---- !u!114 &901180517973506760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3922505364316540577}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f621018bd2148a7579d9064e8ad3cbbc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 3922505365514472780}
-  fixedUpdate: 1
-  updateStateOnUpdate: 0
-  controller: {fileID: 8767827379919767502}
+  managed: 0
+  waitClientRequest: 1
 --- !u!1 &3959695059571358197
 GameObject:
   m_ObjectHideFlags: 0
