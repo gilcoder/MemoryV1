@@ -65,6 +65,7 @@
      <Compile Include="Assets\baseline\ext\EmoBoy\Scripts\CameraController.cs" />
      <Compile Include="Assets\baseline\ext\EmoBoy\Scripts\ConfigureTarget.cs" />
      <Compile Include="Assets\baseline\ext\EmoBoy\Scripts\EmotionalActuator.cs" />
+     <Compile Include="Assets\baseline\ext\EmoBoy\Scripts\SetConfigActuator.cs" />
      <Compile Include="Assets\baseline\ext\EmoBoy\Scripts\TouchSensor.cs" />
      <Compile Include="Assets\baseline\ext\RL\Actuator.cs" />
      <Compile Include="Assets\baseline\ext\RL\CharacterLocalController.cs" />
@@ -80,6 +81,7 @@
      <Compile Include="Assets\baseline\ext\RewardShaping\AutoFallReward.cs" />
      <Compile Include="Assets\baseline\ext\RewardShaping\AutoForwardTargetReward.cs" />
      <Compile Include="Assets\baseline\ext\RewardShaping\BoxRewardFunc.cs" />
+     <Compile Include="Assets\baseline\ext\RewardShaping\MultTouchPrecondiction.cs" />
      <Compile Include="Assets\baseline\ext\RewardShaping\MultTouchPrecondition.cs" />
      <Compile Include="Assets\baseline\ext\RewardShaping\RewardFunc.cs" />
      <Compile Include="Assets\baseline\ext\RewardShaping\TouchRewardFunc.cs" />

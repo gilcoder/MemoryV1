@@ -434,60 +434,6 @@ MonoBehaviour:
   - {fileID: 1751424441}
   - {fileID: 1751424439}
   atLeastOne: 1
---- !u!1 &828493229 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8774002466569276072, guid: 73cc3f0c1dac57044b355e2250c718ea,
-    type: 3}
-  m_PrefabInstance: {fileID: 1751424432}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &828493230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828493229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6588afed7a476f428c69b8a41b2495c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agents:
-  - {fileID: 1751424440}
-  causeEpisodeToEnd: 0
-  preconditions:
-  - {fileID: 1751424444}
-  - {fileID: 1751424443}
-  - {fileID: 1751424442}
-  - {fileID: 1751424439}
-  atLeastOne: 1
---- !u!1 &935215925 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 509436686413854122, guid: 73cc3f0c1dac57044b355e2250c718ea,
-    type: 3}
-  m_PrefabInstance: {fileID: 1751424432}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &935215926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 935215925}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6588afed7a476f428c69b8a41b2495c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agents:
-  - {fileID: 1751424440}
-  causeEpisodeToEnd: 0
-  preconditions:
-  - {fileID: 1751424444}
-  - {fileID: 1751424443}
-  - {fileID: 1751424441}
-  - {fileID: 1751424439}
-  atLeastOne: 1
 --- !u!1 &968245593 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2132851591305902273, guid: 73cc3f0c1dac57044b355e2250c718ea,
@@ -1045,7 +991,7 @@ PrefabInstance:
         type: 3}
       propertyPath: multiplePreconditions
       value: 
-      objectReference: {fileID: 935215926}
+      objectReference: {fileID: 0}
     - target: {fileID: 2878513211862853167, guid: 73cc3f0c1dac57044b355e2250c718ea,
         type: 3}
       propertyPath: painForOverTouch
@@ -1250,7 +1196,7 @@ PrefabInstance:
         type: 3}
       propertyPath: multiplePreconditions
       value: 
-      objectReference: {fileID: 828493230}
+      objectReference: {fileID: 0}
     - target: {fileID: 6564851387318341100, guid: 73cc3f0c1dac57044b355e2250c718ea,
         type: 3}
       propertyPath: m_TagString
@@ -1558,7 +1504,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1751424432}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828493229}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44f27d67f7844743798c5d1bcda4139a, type: 3}
@@ -1570,7 +1516,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1751424432}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 935215925}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 44f27d67f7844743798c5d1bcda4139a, type: 3}
